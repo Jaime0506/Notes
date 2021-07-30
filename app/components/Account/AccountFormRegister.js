@@ -3,10 +3,12 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import { Input, Button } from "react-native-elements";
 import { BackgroundCarousel } from '../BackgroundCarousel';
 
-export default function AccountFormRegister() {
+export default function AccountFormRegister(props) {
+
+    const { onSubmit, onChange, loading, errors } = props;
 
     const [showPassword, setShowPassword] = useState(false);
-
+    
     const images = [
         "https://64.media.tumblr.com/456dd41365b7e664e9c8701c2d71cfc3/tumblr_njy5dt4nw51r67atzo1_1280.jpg",
         "https://64.media.tumblr.com/58ccde65cccd3832b1e89d7b1716a119/tumblr_oagcqkbzLI1vqwyhpo1_1280.jpg",
@@ -41,6 +43,8 @@ export default function AccountFormRegister() {
                             marginTop: 5,
                             marginRight: 3
                         }}
+                        onChange={e =>  onChange(e,"email")}
+                        errorMessage={errors.email}
                     />
                     <Input
                         label="Contraseña"
@@ -54,6 +58,8 @@ export default function AccountFormRegister() {
                         }}
                         passwordRules={true}
                         secureTextEntry={ showPassword ? false : true }
+                        onChange={e => onChange(e,"password")}
+                        errorMessage={errors.password}
                     />
                     <Input
                         label="Repetir Contraseña"
@@ -68,6 +74,8 @@ export default function AccountFormRegister() {
                         leftIconContainerStyle={{
                             marginRight: 3,
                         }}
+                        onChange={e => onChange(e,"repeatPassword")}
+                        errorMessage={errors.repeatPassword}
                     />
                     <Button
                         title="Crear Cuenta"
@@ -81,6 +89,8 @@ export default function AccountFormRegister() {
                         buttonStyle={{
                             backgroundColor: "#f4b844"
                         }}
+                        loading={loading}
+                        onPress={onSubmit}
                     />
                 </View>
             </View> 

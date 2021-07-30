@@ -1,7 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
+
 import Notas from "../screens/Notes/Notes";
+import NotesCreate from "../screens/Notes/NotesCreate";
 
 export default function NotesStack() {
 
@@ -15,7 +17,17 @@ export default function NotesStack() {
                 options={{
                     title: "Mis Notas",
                     headerStyle: {
-                        backgroundColor: "#F5F5F5",
+                        backgroundColor: "#A2E3D2",
+                    }
+                }}
+            />
+            <Stack.Screen
+                name="crear-notas"
+                component={NotesCreate}
+                options={{
+                    title: "Crea una Nota",
+                    headerStyle: {
+                        backgroundColor: "#A2E3D2",
                     }
                 }}
             />

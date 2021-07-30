@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import { Button } from "react-native-elements";
 
-export default function Acount({ navigation }) {
-    
+export default function AccountGuest({ navigation }) {
+        
     return (
         <View style={styles.containerAccount}>
             <Image 
@@ -29,7 +29,7 @@ export default function Acount({ navigation }) {
                     backgroundColor: "#99D6C6"
                 }}
                 containerStyle={styles.containerBtn}
-                onPress={() => navigation.navigate("account-login")}
+                onPress={ () => navigation.navigate("account-login")}
             />
         </View>
     )

@@ -1,9 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
-import Acount from "../screens/Account/Acount";
+import Account from "../screens/Account/Account"
 import AccountLogin from '../screens/Account/AccountLogin';
 import AccountRegister from '../screens/Account/AccountRegister';
+
 
 export default function AcountStack() {
 
@@ -13,7 +14,7 @@ export default function AcountStack() {
         <Stack.Navigator>
             <Stack.Screen
                 name="account"
-                component={Acount}
+                component={Account}
                 options={{
                     title: "Mi cuenta",
                     headerStyle: { 

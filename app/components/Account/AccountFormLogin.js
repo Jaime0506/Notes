@@ -2,10 +2,10 @@ import React, { useState, useEffect} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Input, Button } from 'react-native-elements'
 
-export default function AccountFormLogin({ navigation }) {
+export default function AccountFormLogin({ onChange, onSubmit, loading, errors }) {
 
     const [showPassword, setShowPassword] = useState(false);
-
+    
     return (
         <View style={{
             alignItems: 'center',
@@ -24,6 +24,7 @@ export default function AccountFormLogin({ navigation }) {
                     marginTop: 5,
                     marginRight: 5,
                 }}
+                onChange={e => onChange(e, "email")}
             />
             <Input
                 label="Contraseña"
@@ -38,6 +39,8 @@ export default function AccountFormLogin({ navigation }) {
                 }}
                 password={true}
                 secureTextEntry={showPassword ? false : true}
+                onChange={e => onChange(e,"password")}
+                errorMessage={errors.error}
             />
             <Button
                 title="Iniciar Sesión"
@@ -49,21 +52,13 @@ export default function AccountFormLogin({ navigation }) {
                 buttonStyle={{
                     backgroundColor: "#00acea",
                 }}
+                onPress={onSubmit}
+                loading={loading}
             />
         </View>
     )
 };
 
-function defaultData() {
-    return {
-        email: "",
-        password: "",
-        repeatPassword: "",
-    }   
-};
-
 const styles = StyleSheet.create({
-    inptu: {
-        
-    },
+
 })
